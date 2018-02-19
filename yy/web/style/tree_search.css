@@ -1,0 +1,74 @@
+/*
+ * WebCinema v3.0 - tree_search.css
+ * @author Troy <troy@yy6080.org>
+ * 经原作者许可，样式仿制YY应用“子频道搜索”作者YY号:7660080
+ * FBI WARNING: 偷代码前务必做好服务器的安全防护，并且由此带来的一切不良后果自行负责
+ */
+*{margin:0;padding:0;}
+html{
+    padding:0 !important;
+    padding:85px 0 25px 0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+body{
+    padding:85px 0 25px 0;
+    padding:/**/0;
+    height:100%;
+    overflow:hidden;
+}
+#header{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:85px;
+    line-height:85px;
+}
+#middle{
+    position:absolute!important;
+    position:relative;
+    top:85px!important;
+    top:0;
+    bottom:25px;
+    width:100%;
+    height:auto!important;
+    height:100%;
+    overflow:hidden;
+}
+#footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:25px;
+    line-height:25px;
+}
+
+/*原版写的是锁定宽高...经二次开发已自适应*/
+.searchBox{margin:5px;line-height:0px;}/*覆盖关键的全局属性防止排版错误*/
+.searchBox .fake{background-color:#dddddd;height:44px;padding:3px;}
+.searchBox .bg{background:url(/icons/search_icon.png) #FFFFFF 8px center no-repeat;height:42px;border:1px solid #ccc;}
+.searchBox .box{margin-left:50px;}
+.searchBox .text{width:100%;height:39px;line-height:40px;font-size:16px;font-family:'微软雅黑';border:0;color:#a5b0b4;}
+
+/*感谢小卢同学发现的IE低版本HR排版BUG，我已将hr和谐*/
+#title{height:20px;line-height:20px;color:#707070;font-size:14px;font-weight:bold;text-align:center;border-bottom-style:solid;border-bottom-width:2px;border-bottom-color:#0099CC;}
+
+/*TODO:IE7撑不开*/
+#recommend{width:100%;height:100%;display:block;}
+#recommend a{color:#0099cc;font-size:16px;font-weight:bold;}
+#recommend table{width:100%;height:100%;font-size:12px;border-width:4px;}
+#recommend td{text-align:center;background-color:#f2f1f1;color:#999999;width:25%;height:25%;}
+
+#searchResult{display:none;}
+#searchResult ul.even{background:#efefef;}
+#searchResult ul.odd{background:#ffffff;}
+#searchResult .result{height:30px;overflow:hidden;list-style:none;margin:0;padding:0 17px;}
+#searchResult .name{text-align:left;line-height:30px;float:left;width:80%;display:inline;}
+#searchResult .option{height:30px;line-height:30px;float:left;width:20%;text-align:center;display:inline;}
+#searchResult .option a{margin:0 3px;}
+
+#footer .left{margin-left:5px;float:left;}
+#footer .right{margin-right:5px;float:right;}
+
+.nothing{height:25px;line-height:25px;color:#8080c8;margin-top:150px;text-align:center;font-size:14px;}

@@ -1,0 +1,162 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>列表导航页面</title>
+<script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<style>
+body { margin:0px; padding:3px; /*overflow-x:hidden;*/ padding-right:0px; }
+#shouye { display:block; margin:0px 1px 0px 1px; padding-left:17px; background:url(images/1.png) no-repeat; height:20px; background-color: #fafafa; background-position: 2px 3px; line-height: 20px; font-family: "宋体"; font-size: 12px; font-style: normal; text-decoration:none; color:#000;  }
+#shouye:hover,#shouye:active{ background-color:#cbe2e5; overflow:hidden; background-repeat: no-repeat; background-position: 2px 3px; text-decoration:none; color:#C00; }
+a { display:block; margin:2px 1px 0px 1px; padding-left:17px; background:url(images/2.png) no-repeat; height:20px; background-color: #fafafa; background-position: 2px 3px; line-height: 20px; font-family: "宋体"; font-size: 12px; font-style: normal; text-decoration:none; color:#000; }
+a:hover,a:active{ background-color:#cbe2e5; background-repeat: no-repeat; background-position: 2px 3px; text-decoration:none; color:#F00; }
+ul { list-style-type: none; padding: 0; margin:0px; }
+h1 { margin:0px; cursor:pointer; }
+h2 { margin:0px; overflow:hidden; height:0px; }
+.dh_list li h1 { display:block; line-height: 17px; }
+.dh_list li h1 a { font-family: "宋体"; font-size: 12px; font-style: normal; text-decoration:none; color:#F00; font-weight:normal;background:url(images/o.png) no-repeat; background-color: #fafafa; background-position: 2px 3px; }
+.dh_list li h1 a:hover,#dh_list li h1 a:active{ background-color:#cbe2e5; background-repeat: no-repeat; background-position: 2px 3px; text-decoration:none; color:#009; }
+.dh_list li h2 a { font-family: "宋体"; font-size: 12px; font-style: normal; text-decoration:none; color:#000; font-weight:normal; text-indent:10px; background:url(images/2.png) no-repeat; background-position: 12px 3px; background-color: #fafafa; }
+.dh_list li h2 a:hover,#dh_list li h2 a:active{ background-color:#cbe2e5; background-repeat: no-repeat; background-position: 12px 3px; text-decoration:none; }
+</style>
+<script>
+$(window).load(function(){
+	var ah1a=$('#lists').find('.a_list');
+	var a_click=$('#lists').find('a').not('.a_list');
+	
+	a_click.click(function(){
+		a_click.removeAttr('style');
+		$(this).css({'color':'red'});
+	});
+	ah1a.toggle(function(){
+		var _this=$(this);
+		$(this).parent().next().css({'height':'auto'});
+		this.oHeight=parseInt($(this).parent().next().css('height'));
+		$(this).parent().next().css({'height':'0px'});
+		
+		$(this).parent().next().animate({'height':this.oHeight},function(){
+			_this.css('background-image','url("images/c.png")');
+		});
+	},function(){
+		var _this=$(this);
+		$(this).parent().next().animate({'height':0},function(){
+			_this.css('background-image','url("images/o.png")');
+		});
+	});
+	$(document).bind('contextmenu',function(){
+		return false;
+	});
+});
+$(window).load(function(){
+	var oGet=window.location.search;
+	if(oGet){
+		var arr_oGet=oGet.split("=");
+		var url_arr=decodeURI(arr_oGet[1]);
+		$('.dh_list').find('.a_list').hide();
+		var alists=$('#lists').find('a').not('.a_list');
+		alists.hide();
+		alists.each(function(){
+			if($(this).text().indexOf(url_arr)!=-1){
+				$(this).parent().css({'height':'auto'});
+				$(this).show();
+				$(this).css({'backgroundPosition':'2px 3px','textIndent':'0px'});
+			}
+		});
+	}
+	$('#shouye').click(function(){
+		window.location.href='list.htm'
+	});
+});
+function play(play_id){
+	var get_id=play_id.split('=');
+	if(get_id[0]=='web'){
+		window.top.frames['play'].location.href='web/'+get_id[1]+'.htm';
+	}else{
+		window.top.frames['play'].location.href='play.htm?lists='+play_id;
+	}
+}
+</script>
+</head>
+<body onContextMenu="return false;" onSelectStart="return false">
+<a id="shouye" style="cursor:pointer;">【影视】电影更新中…</a>
+<div id="lists">
+	<div id="qian">
+        <a href="javascript:play('web=14029');">╔═╗　┊┊ 神聖影院 ┊┊　╔═╗</a>
+        <a href="javascript:play('list/2');">║影║　┊┊☆╭の╮☆┊┊　║娱║</a>
+        <a href="javascript:play('web=14029');">║视║　┊☆　 ╲╱　 ☆┊　║乐║</a>
+        <a href="javascript:play('web=14029');">╚═╝　☆ YY群:8678696 ☆　╚═╝</a>
+        <a href="javascript:play('web=14029');">︱*----------------------------*︱</a>
+        <a href="javascript:play('web=14029');">︱┊　　【 会 员 娱 乐 】　　 ┊︱</a>
+        <a href="javascript:play('web=14029');">︱┊　　【 影 视 更 新 】　　 ┊︱</a>
+        <a href="javascript:play('web=14029');">︱┊　　【 引 导 教 程 】　　 ┊︱</a>
+        <a href="javascript:play('web=14029');">︱┊　　【 影 片 搜 索 】　　 ┊︱</a>
+        <a href="javascript:play('web=14029');">︱*----------------------------*︱</a>
+        <a href="javascript:play('web=14029');">︱┊推荐┊　 ＤＪ舞曲大厅　　 ┊︱</a>
+        <a href="javascript:play('web=14029');">︱┊推荐┊　 DJ舞曲大放送　　 ┊︱</a>
+        <a href="javascript:play('web=14029');">︱┊直播┊　　ＣＣＴＶ５　　　┊︱</a>
+        <a href="javascript:play('web=14029');">︱*-----┊---------------------*︱</a>
+        <a href="javascript:play('tv=10078');">︱┊电影┊　　 古惑仔合集　　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊电影┊　　 喜剧大合集　　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊电影┊　　 赌片大合集　　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊电影┊　　动作大片合集 　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊电影┊　　成龙电影专辑 　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊电影┊　　黄渤电影专辑 　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊电影┊　 周星驰电影专辑　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊电影┊　 林正英电影专辑　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊电影┊　 甄子丹电影专辑　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊电影┊　 周润发电影专辑　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊电影┊　 刘德华电影专辑　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊电影┊　 李连杰电影专辑　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊直播┊　 [央视]直播频道　 ┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊直播┊　　电视台直播室　　┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊回播┊　　电视节目回播　　┊︱</a>
+        <a href="javascript:play('tv=10078');">︱╭┈┈┈最┈新┈电┈影┈┈┈╮︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈火┈爆┈剧┈场┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈青┈春┈偶┈像┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈男┈士┈专┈区┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈搞┈笑┈喜┈剧┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈毛┈骗┈专┈辑┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈中┈外┈动┈作┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈国┈语┈经┈典┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈惊┈悚┈恐┈怖┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈新┈古┈惑┈仔┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈神┈奇┈科┈幻┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈僵┈尸┈专┈辑┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈动┈漫┈推┈荐┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈美┈女┈热┈舞┈┈┈┊︱</a>
+        <a href="javascript:play('tv=10078');">︱┊┈┈┈综┈艺┈娱┈乐┈┈┈┊︱</a>
+        <a href="javascript:play('web=14029');">│ ·━━┅★赞助别墅★┅━━· │</a>
+        <a href="javascript:play('web=14029');">︱　　　 神聖影院考核专区　　 　︱</a>
+        <a href="javascript:play('web=14029');"> ╭　♡ ＂　影视办公专区　＂ ♡　╮</a>
+        <a href="javascript:play('web=14029');">│　　 客服　　 ▲　　 大厅　　 │</a>
+        <a href="javascript:play('web=14029');">│　　 厅管　　 ☆　　 大厅　　 │</a>
+        <a href="javascript:play('web=14029');">│　　 更新　　 ◆　　 大厅　 　│</a>
+        <a href="javascript:play('web=14029');">│　　 外宣　　 ※　　 人事　 　│</a>
+        <a href="javascript:play('web=14029');">│　　 技术　　 ☎　　 联盟　 　│</a>
+        <a href="javascript:play('web=14029');">│　　 挂机　　 ○　　 专区　 　│</a>
+        <a href="javascript:play('web=14029');">╰ ♤ ＂　 影视娱乐专区　 ＂ ♤　 ╯</a>
+        <a href="javascript:play('web=14029');">＊┄━┄━┄━┄━┄━┄━┄━┄＊</a>
+        <a href="javascript:play('web=14029');">│ ╱◥█◣^^ ╪zｚ 神 聖 影 院 │</a>
+        <a href="javascript:play('web=14029');">│　田︱ 田︱ ぃ┏━┓ ●╭○╮ │</a>
+        <a href="javascript:play('web=14029');">│　┃戀┃/█∨█ 　│</a>
+        <a href="javascript:play('web=14029');">│╪╪╪╪╪╪　┗━┛ ∏　∏ o │</a>
+        <a href="javascript:play('web=14029');">│　官方网站:　www.cmpyy.com　　│</a>
+        <a href="javascript:play('web=14029');">│　影视： 神聖影院　 免责声明　│</a>
+        <a href="javascript:play('web=14029');">│　本频道最新电影收集于互联网　│</a>
+        <a href="javascript:play('web=14029');">│　 内容版权归原影音公司所有　 │</a>
+    </div>
+	<ul class="dh_list">
+            </h2>
+        <li>
+        	<h1>
+            	<a class="a_list">＊┄━┄━┄━┄━┄━┄━┄━┄＊</a>
+			</h1>
+            <h2>
+            	<a href="javascript:play('tv=10078');">更新中</a>
+
+            </h2>
+        </li>
+     </ul>
+</div>
+</body>
+</html>
